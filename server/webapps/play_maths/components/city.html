@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<HTML>
+<Head>
+	<title>
+		Play Maths
+	</title>
+	<link rel="icon" type="image/png" href="img\\pm.png">
+
+
+	
+	<script>	
+
+	var canvas;
+	var canvas2;
+	var ctx;
+	var ctx2;
+	var x = 0;
+	var y = 0;
+	var x2 = 1000;
+	var pic;
+	var qImg = null;
+	var canImg = "img\\3can.png";
+	var stop = false;
+	var clearVaribale;
+	var wrongAnswerCount = 0;
+	var audio= new Audio('sound/city.mp3'); 
+
+
+
+	function drawAtLoad(){
+		document.getElementById("q1").style.visibility = 'hidden';
+		document.getElementById("next").style.visibility = 'hidden';
+		canvas = document.getElementById("canvas");
+		ctx = canvas.getContext("2d");
+		drawImage();	
+	}	
+
+
+
+
+
+
+	function canAtLoad(){
+		
+		canvas2 = document.getElementById("canvas2");
+		ctx2 = canvas2.getContext("2d");
+		drawImage3();	
+	}	
+	function drawImage(){
+
+		ctx.clearRect(0,y+100,1350,225);
+		var img=new Image();
+		img.src=pic;
+		ctx.drawImage(img, x, y+100,300,225);		
+		
+	}
+	
+	function drawImage2(){
+		stop = true;
+		ctx.clearRect(0,y+20,1350,120);
+		var img=new Image();
+		img.src=qImg;
+		ctx.drawImage(img, x, y+20,305,120);		
+		
+	}	
+
+	function drawImage3(){
+		
+		ctx2.clearRect(1250,0,1350,120);
+		var img=new Image();
+		img.src=canImg;
+		ctx2.drawImage(img, 1250, 0,100,46);		
+		
+	}
+
+	function gameOver(){		
+		
+		ctx.clearRect(500,83,1350,120);
+		var img=new Image();
+		img.src="img\\gameover.png";
+		ctx.drawImage(img, 500, 83,400,83);		
+		
+	}
+
+	function gameComplete(){		
+		document.getElementById("next").style.visibility = 'visible';
+		pic = null;
+		drawImage();
+		ctx.clearRect(290,133,1350,133);
+		var img=new Image();
+		img.src="img\\gamewin.png";
+		ctx.drawImage(img, 290, 133,800,133);		
+		
+	}
+
+	function question(x){
+		
+		soundStop();
+
+		switch(x){
+
+			case 200: qImg = "img\\q1.png";
+
+			document.getElementById("qp").innerHTML = "10 + 32 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = '22'>12</input>"+
+			"<input type = 'checkbox' id = 'a2'>52</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>42</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>62</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+
+			break;
+
+			case 450:
+
+			qImg = "img\\q2.png";
+
+			document.getElementById("qp").innerHTML = "10 + 100 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = '22'>120</input>"+
+			"<input type = 'checkbox' id = 'a2'>520</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>110</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>627</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+			break;
+
+			case 650:
+
+			qImg = "img\\q3.png";
+
+			document.getElementById("qp").innerHTML = "10 + 43 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = 'a2'>73</input>"+
+			"<input type = 'checkbox' id = 'a2'>54</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>53</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>63</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+			break;
+
+			case 900:
+
+			qImg = "img\\q4.png";
+			document.getElementById("qp").innerHTML = "10 * 43 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = 'a2'>730</input>"+
+			"<input type = 'checkbox' id = 'a2'>540</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>430</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>630</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+
+		}
+
+}
+
+	function nextMtd(){
+
+			window.location.assign("police.html"); 
+
+	}
+	 
+
+	function soundPlay(){
+
+	      
+			audio.play();		
+	}
+
+	function soundStop(){
+
+	      
+			audio.pause();		
+	}
+
+	function submit(){
+
+
+		
+		if(document.getElementById("correct").checked){
+
+			
+			qImg = null;
+
+			drawImage2();
+			document.getElementById("q1").style.visibility = 'hidden';
+			stop = false;
+			
+
+
+		}else{
+			wrongAnswerCount++;
+
+			if(wrongAnswerCount==1){
+
+				canImg = "img\\2can.png";
+				
+
+			}
+			if(wrongAnswerCount==2){
+
+				canImg = "img\\1can.png";
+				
+			}
+			if(wrongAnswerCount==3){
+				document.getElementById("q1").style.visibility = 'hidden';
+				pic = null;
+				qImg = null;
+				canImg = null;
+				drawImage2();
+				drawImage3();
+				drawAtLoad();
+				gameOver();
+			}
+			
+		}
+		
+
+
+	}
+
+	
+
+	
+	
+
+	window.onkeydown = function(e) {
+		
+
+		if(wrongAnswerCount!=3){
+			
+		soundPlay();		
+
+		drawImage3();	
+		
+   		var key = e.keyCode ? e.keyCode : e.which;
+
+   		if(x==1045){
+
+   			gameComplete();
+
+   		}
+
+
+   		if (key == 39 && x<1045 && stop == false) {
+
+      		x +=1;
+      		drawImage();
+      		
+
+   		} 	
+
+   		if(x == 200 || x == 450 || x == 650 || x == 900){
+   			
+   			drawImage2();
+   			question(x);
+
+   		}
+
+   		
+
+   		if(x%2==0){
+
+   			pic = "img\\taxi.png";
+
+   		}
+   			else{
+
+   			pic = "img\\taxi1.png";
+
+   			}
+
+
+   		}else{
+   			gameOver();
+   		}
+
+	}
+	</script>
+
+	<style>
+
+	.canvas2{
+
+
+		
+	}
+	
+	.bottomLine{
+
+		
+		margin-top: 0px;
+
+		
+	}	
+
+	body{
+
+		background-image: url("img\\city.jpg");
+		background-repeat: no-repeat;
+		background-size: 100%;
+
+
+	}
+
+	.question{
+		
+		margin-left: 0px;
+		width: 1320px;
+		height: 160px;
+		font-size: 32px;
+		color: white;
+		font-family: fantasy;		
+		text-align: center;
+		vertical-align: center;
+		display: inline-center;		
+		
+
+
+	}
+
+	.button{
+
+		margin-left: 580px;
+		background-color: #27b542;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 32px;
+		width: 150px;
+		height: 40px;
+		border-color: #27b542;
+
+
+	}
+
+
+	.nextButton{
+
+		margin-left: 420px;
+		background-color: #7CFC00;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 32px;
+		width: 150px;
+		height: 40px;
+		border-color: #7CFC00;
+
+
+	}
+	
+	</style>
+
+
+
+</Head>
+
+
+<body onload="drawAtLoad(),canAtLoad()" >
+
+	<canvas id = "canvas2" width="1350" height="85" class = "canvas2">
+
+		<img src = "img\\taxi.png">
+		
+
+	</canvas>
+
+	<div id = "q1" class = "question" >
+
+		<p id = "qp" ></p>	
+
+		<div id = "aset"></div>
+
+		<button class = "button" id = "submit" onclick="submit()" >submit</button>
+
+		<button id = "next" class = "nextButton" onclick = "nextMtd()">Next >></button>
+
+	</div>
+
+	
+
+
+	<canvas id = "canvas" width="1349" height="329" class = "bottomLine"></canvas>
+
+	
+
+
+
+	
+	
+
+	
+
+</body>
+
+</HTML>

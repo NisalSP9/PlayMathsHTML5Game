@@ -1,0 +1,45 @@
+body{
+		
+		background-image: url("../img/coverpage3.png");
+		background-repeat: no-repeat;
+		background-size: 100%;
+
+
+	}
+
+	.top{
+
+		margin-left: 0px;
+
+	}
+
+
+	.bottom{
+		margin-top: 100px;
+		
+		}
+
+		.button1{
+		margin-top:20px;
+		margin-left: 470px;
+		background-color: #7CFC00;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 52px;
+		width: 150px;
+		height:80px;
+		border-color: #7CFC00;
+		display: inline;
+		}
+		.button2{
+		margin-top:20px;
+		margin-left: 5px;
+		background-color:  #00ffff;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 52px;
+		width: 290px;
+		height:80px;
+		border-color: #00ffff;
+		display: inline;
+		}

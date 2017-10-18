@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<HTML>
+<Head>
+	<title>
+		Play Maths
+	</title>
+	<link rel="icon" type="image/png" href="img\\pm.png">
+
+
+	
+	<script>	
+
+	var canvas;
+	var ctx;
+	var x = 0;
+	var y = 0;
+	var x2 = 1000;
+	var pic;
+	var qImg = null;
+	var canImg = "img\\3can.png";
+	var stop = false;
+	var clearVaribale;
+	var wrongAnswerCount = 0;
+	var audio= new Audio('sound/helli.mp3'); 
+
+
+
+	function drawAtLoad(){
+		document.getElementById("next").style.visibility = 'hidden';
+		document.getElementById("q1").style.visibility = 'hidden';
+		canvas = document.getElementById("canvas");
+		ctx = canvas.getContext("2d");
+		drawImage();	
+	}	
+
+	function drawImage(){
+
+		ctx.clearRect(0,y+100,1350,225);
+		var img=new Image();
+		img.src=pic;
+		ctx.drawImage(img, x, y+100,300,225);		
+		
+	}
+	
+	function drawImage2(){
+		stop = true;
+		ctx.clearRect(0,y,1350,120);
+		var img=new Image();
+		img.src=qImg;
+		ctx.drawImage(img, x, y,305,120);		
+		
+	}	
+
+	function drawImage3(){
+		
+		ctx.clearRect(1250,0,1350,120);
+		var img=new Image();
+		img.src=canImg;
+		ctx.drawImage(img, 1250, 0,100,46);		
+		
+	}
+
+	function gameOver(){		
+		
+		ctx.clearRect(500,83,1350,120);
+		var img=new Image();
+		img.src="img\\gameover.png";
+		ctx.drawImage(img, 500, 83,400,83);		
+		
+	}
+
+	function gamePause(){		
+		
+		ctx.clearRect(0,83,1350,250);
+		var img=new Image();
+		img.src="img\\pause.png";
+		ctx.drawImage(img, 500, 83,400,250);		
+		
+	}
+
+	function gameComplete(){		
+		document.getElementById("next").style.visibility = 'visible';
+		ctx.clearRect(290,133,1350,200);
+		var img=new Image();
+		img.src="img\\level.png";
+		ctx.drawImage(img, 290, 133,800,133);		
+		
+	}
+
+	
+
+	function question(x){
+		
+		soundStop();
+
+		if(x == 201){
+
+			qImg = "img\\helliQ1.png";
+
+			document.getElementById("qp").innerHTML = "10 + 32 + 30 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = '22'>92</input>"+
+			"<input type = 'checkbox' id = 'a2'>152</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>72</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>82</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+
+		}
+		if(x == 451){
+
+			qImg = "img\\helliQ1.png";
+
+			document.getElementById("qp").innerHTML = "100 / 10 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = '22'>120</input>"+
+			"<input type = 'checkbox' id = 'a2'>520</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>10</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>627</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+			
+			
+
+		}
+		if(x == 651){
+
+			qImg = "img\\helliQ1.png";
+
+			document.getElementById("qp").innerHTML = "10 + 473 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = 'a2'>703</input>"+
+			"<input type = 'checkbox' id = 'a2'>540</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>483</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>630</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+			
+			
+
+		}
+
+		if(x == 901){
+
+			qImg = "img\\helliQ1.png";
+			document.getElementById("qp").innerHTML = "20 x 43 = ?";
+
+			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = 'a2'>730</input>"+
+			"<input type = 'checkbox' id = 'a2'>540</input>"+
+
+			"<input type = 'checkbox' id = 'correct'>860</input>"+
+
+			"<input type = 'checkbox' id = 'a4'>630</input>";
+			
+			document.getElementById("q1").style.visibility = 'visible';
+			stop = true;
+			
+			
+
+		}
+
+}
+
+
+	 
+
+	function soundPlay(){
+
+	      
+			audio.play();		
+	}
+
+	function soundStop(){
+
+	      
+			audio.pause();		
+	}
+
+	function submit(){
+
+
+		
+		if(document.getElementById("correct").checked){
+
+			
+			qImg = null;
+			drawImage2();
+			document.getElementById("q1").style.visibility = 'hidden';
+			stop = false;
+			
+
+
+		}else{
+			wrongAnswerCount++;
+
+			if(wrongAnswerCount==1){
+
+				canImg = "img\\2can.png";
+				
+
+			}
+			if(wrongAnswerCount==2){
+
+				canImg = "img\\1can.png";
+				
+			}
+			if(wrongAnswerCount==3){
+				document.getElementById("q1").style.visibility = 'hidden';
+				pic = null;
+				qImg = null;
+				canImg = null;
+				drawImage2();
+				drawImage3();
+				drawAtLoad();
+				gameOver();
+			}
+			
+		}
+		
+
+
+	}
+
+		function nextMtd(){
+
+
+		window.location.assign("space.html"); 
+
+	}
+
+
+	
+	window.onkeyup = function(e) {
+
+
+
+		if(x != 201 && x != 451 && x != 651 && x != 901 && x != 1045){
+   			
+   			
+				gamePause();
+				audio.pause();
+				
+				
+
+   		}
+		
+
+	}
+	
+
+	window.onkeydown = function(e) {
+		
+
+		if(wrongAnswerCount!=3){
+			
+		soundPlay();		
+
+		drawImage3();	
+		
+   		var key = e.keyCode ? e.keyCode : e.which;
+
+   		if(x==1045){
+
+   			gameComplete();
+
+   		}
+
+
+   		if (key == 39 && x<1045 && stop == false) {
+
+      		x +=1;
+      		drawImage();
+      		
+
+   		} 	
+
+   		if(x == 201 || x == 451 || x == 651 || x == 901){
+   			
+   			drawImage2();
+   			question(x);
+
+   		}
+
+   		
+
+   		if(x%2==0){
+
+   			pic = "img\\h1.png";
+
+   		}
+   			else{
+
+   			pic = "img\\h2.png";
+
+   			}
+
+
+   		}else{
+   			gameOver();
+   		}
+
+	}
+	</script>
+
+	<style>
+	
+	.bottomLine{
+		
+		
+	}	
+
+	body{
+
+		background-image: url("img\\sky.jpg");
+		background-repeat: no-repeat;
+		background-size: 100%;
+
+
+	}
+
+	.question{
+
+		margin-left: 0px;
+		width: 1350px;
+		height: 70px;
+		font-size: 32px;
+		color: blue;
+		font-family: fantasy;		
+		text-align: center;
+		vertical-align: center;
+		display: inline-center;		
+
+
+	}
+
+	.button{
+
+		border: dashed;
+		background-color: #27b542;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 32px;
+		width: 150px;
+		height: 40px;
+		border-color: #27b542;
+
+
+	}
+
+	.buttonNext{
+		
+		margin-top: 55px;
+		margin-left: 1200px;
+		background-color: #27b542;
+		font-family: Showcard Gothic;	
+		border-radius: 10px;
+		font-size: 32px;
+		width: 150px;
+		height: 40px;
+		border-color: #27b542;
+
+
+	}
+	
+	</style>
+
+
+
+</Head>
+
+
+<body onload="drawAtLoad(),gamePause(),drawImage3()" >
+
+<canvas id = "canvas" width="1350" height="420" class = "bottomLine">
+
+		<img src = "img\\h1.png">
+		
+
+	</canvas>
+
+
+	<div id = "q1" class = "question">
+
+		<p id = "qp"></p>	
+
+		<div id = "aset"></div>
+
+		<button class = "button" id = "submit" onclick="submit()" >submit</button>
+
+	</div>
+
+	<div><button class = "buttonNext" id = "next" onclick = "nextMtd()">Next >></button></div>
+
+
+</body>
+
+</HTML>
