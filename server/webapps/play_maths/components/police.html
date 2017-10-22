@@ -4,7 +4,7 @@
 	<title>
 		Play Maths
 	</title>
-	<link rel="icon" type="image/png" href="img\\pm.png">
+	<link rel="icon" type="image/png" href="../img/pm.png">
 
 
 	
@@ -19,11 +19,11 @@
 	var x2 = 1000;
 	var pic;
 	var qImg = null;
-	var canImg = "img\\3can.png";
+	var canImg = "../img/3can.png";
 	var stop = false;
 	var clearVaribale;
 	var wrongAnswerCount = 0;
-	var audio= new Audio('sound/ps.mp3'); 
+	var audio= new Audio('../sound/ps.mp3');
 
 
 
@@ -72,7 +72,7 @@
 		
 		ctx.clearRect(500,83,1350,120);
 		var img=new Image();
-		img.src="img\\gameover.png";
+		img.src="../img/gameover.png";
 		ctx.drawImage(img, 500, 83,400,83);		
 		
 	}
@@ -83,7 +83,7 @@
 		drawImage();
 		ctx.clearRect(290,133,1350,133);
 		var img=new Image();
-		img.src="img\\gamewin.png";
+		img.src="../img/gamewin.png";
 		ctx.drawImage(img, 290, 133,800,133);		
 		
 	}
@@ -94,7 +94,7 @@
 
 		if(x == 200){
 
-			qImg = "img\\q1.png";
+			qImg = "../img/q1.png";
 
 			document.getElementById("qp").innerHTML = "10 + 32 = ?";
 
@@ -111,7 +111,7 @@
 		}
 		if(x == 450){
 
-			qImg = "img\\q2.png";
+			qImg = "../img/q2.png";
 
 			document.getElementById("qp").innerHTML = "10 + 100 = ?";
 
@@ -130,7 +130,7 @@
 		}
 		if(x == 650){
 
-			qImg = "img\\q3.png";
+			qImg = "../img/q3.png";
 
 			document.getElementById("qp").innerHTML = "10 + 43 = ?";
 
@@ -150,7 +150,7 @@
 
 		if(x == 900){
 
-			qImg = "img\\q4.png";
+			qImg = "../img/q4.png";
 			document.getElementById("qp").innerHTML = "10 * 43 = ?";
 
 			document.getElementById("aset").innerHTML ="<input type = 'checkbox' id = 'a2'>730</input>"+
@@ -208,13 +208,13 @@
 
 			if(wrongAnswerCount==1){
 
-				canImg = "img\\2can.png";
+				canImg = "../img/2can.png";
 				
 
 			}
 			if(wrongAnswerCount==2){
 
-				canImg = "img\\1can.png";
+				canImg = "../img/1can.png";
 				
 			}
 			if(wrongAnswerCount==3){
@@ -276,12 +276,12 @@
 
    		if(x%2==0){
 
-   			pic = "img\\police.png";
+   			pic = "../img/police.png";
 
    		}
    			else{
 
-   			pic = "img\\police2.png";
+   			pic = "../img/police2.png";
 
    			}
 
@@ -311,7 +311,7 @@
 
 	body{
 
-		background-image: url("img\\town.png");
+		background-image: url("../img/town.png");
 		background-repeat: no-repeat;
 		background-size: 100%;
 
@@ -374,7 +374,7 @@
 
 	<canvas id = "canvas2" width="1350" height="85" class = "canvas2">
 
-		<img src = "img\\taxi.png">
+		<img src = "../img/taxi.png">
 		
 
 	</canvas>
