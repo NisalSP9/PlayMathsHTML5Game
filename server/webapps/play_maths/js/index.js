@@ -91,7 +91,7 @@ function replay2(){
 
 function nextMtd(){
 
-			window.location.assign("city.html"); 
+			window.location.href="/components/city.html";
 
 		}
 
