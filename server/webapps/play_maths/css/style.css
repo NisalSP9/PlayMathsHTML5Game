@@ -1,45 +1,84 @@
-body{
-		
-		background-image: url("../img/coverpage3.png");
-		background-repeat: no-repeat;
-		background-size: 100%;
+body {
 
+    background-image: url("../img/coverpage3.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
 
-	}
+}
 
-	.top{
+.top {
 
-		margin-left: 0px;
+    margin-left: 0px;
 
-	}
+}
 
+.bottom {
+    margin-top: 100px;
 
-	.bottom{
-		margin-top: 100px;
-		
-		}
+}
 
-		.button1{
-		margin-top:20px;
-		margin-left: 470px;
-		background-color: #7CFC00;
-		font-family: Showcard Gothic;	
-		border-radius: 10px;
-		font-size: 52px;
-		width: 150px;
-		height:80px;
-		border-color: #7CFC00;
-		display: inline;
-		}
-		.button2{
-		margin-top:20px;
-		margin-left: 5px;
-		background-color:  #00ffff;
-		font-family: Showcard Gothic;	
-		border-radius: 10px;
-		font-size: 52px;
-		width: 290px;
-		height:80px;
-		border-color: #00ffff;
-		display: inline;
-		}
+.button1 {
+    margin-top: 20px;
+    margin-left: 470px;
+    background-color: #7CFC00;
+    font-family: Showcard Gothic;
+    border-radius: 10px;
+    font-size: 52px;
+    width: 150px;
+    height: 80px;
+    border-color: #7CFC00;
+    display: inline;
+}
+
+.button2 {
+    margin-top: 20px;
+    margin-left: 5px;
+    background-color: #00ffff;
+    font-family: Showcard Gothic;
+    border-radius: 10px;
+    font-size: 52px;
+    width: 290px;
+    height: 80px;
+    border-color: #00ffff;
+    display: inline;
+}
+
+.button3 {
+    margin-top: 20px;
+    margin-left: 470px;
+    background-color: #808080;
+    font-family: Showcard Gothic;
+    border-radius: 10px;
+    font-size: 32px;
+    width: 350px;
+    height: 50px;
+    border-color: #808080;
+    display: inline;
+}
+
+.test1 {
+    margin-top: 200px;
+    margin-left: 470px;
+    background-color: #ff8000;
+    font-family: Showcard Gothic;
+    border-radius: 10px;
+    font-size: 52px;
+    width: 350px;
+    height: 60px;
+    border-color: #ff8000;
+    display: inline;
+}
+
+.test2 {
+    margin-top: 20px;
+    margin-left: 470px;
+    background-color: #7CFC00;
+    font-family: Showcard Gothic;
+    border-radius: 10px;
+    font-size: 52px;
+    width: 350px;
+    height: 60px;
+    border-color: #7CFC00;
+    display: inline;
+}
+
