@@ -34,7 +34,15 @@ var user = (function () {
     });
 
     $('#save').click(function () {
-        alert($('.validatedForm').valid());
+        if($('.validatedForm').valid()){
+
+                alert("Ajax call");
+
+        }else{
+
+            alert("Fill The Form Correctly !!!");
+
+        }
     });
 
 
