@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Play Maths HTML5 Game.iml" filepath="$PROJECT_DIR$/Play Maths HTML5 Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlayMathsHTML5Game.iml" filepath="$PROJECT_DIR$/PlayMathsHTML5Game.iml" />
     </modules>
   </component>
 </project>

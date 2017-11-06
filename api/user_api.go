@@ -3,11 +3,11 @@ package api
 import (
 	"net/http"
 	"encoding/json"
-	"github.com/nisalsp9/Play Maths HTML5 Game/models"
-	"github.com/nisalsp9/Play Maths HTML5 Game/controller"
+	"github.com/nisalsp9/PlayMathsHTML5Game/models"
+	"github.com/nisalsp9/PlayMathsHTML5Game/controller"
 )
 
-func CreateUser(w http.ResponseWriter, r *http.Request) error  {
+func CreateUser(w http.ResponseWriter, r *http.Request){
 
 	println("dddddddddddddddddddddddddd")
 
@@ -25,8 +25,4 @@ func CreateUser(w http.ResponseWriter, r *http.Request) error  {
 
 	controller.CreateUser(user)
 
-
-
-
-	return nil
 }

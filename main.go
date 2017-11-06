@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	"github.com/nisalsp9/Play Maths HTML5 Game/routes"
+	"github.com/nisalsp9/PlayMathsHTML5Game/routes"
 )
 
 func main() {
@@ -11,7 +11,7 @@ func main() {
 	http.Handle("/", fs)
 
 	log.Println("Listening...")
-	http.ListenAndServe(":3000", nil)
-	routes.UserRoutes()
+	http.ListenAndServe(":3000", routes.UserRoutes())
+
 
 }

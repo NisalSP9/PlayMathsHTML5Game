@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"github.com/nisalsp9/Play Maths HTML5 Game/DBConnection"
-	"github.com/nisalsp9/Play Maths HTML5 Game/models"
+	"github.com/nisalsp9/PlayMathsHTML5Game/DBConnection"
+	"github.com/nisalsp9/PlayMathsHTML5Game/models"
 )
 
 const CREATE_USER  = `INSERT INTO pm_users (username, password, level) VALUES (?,?,?)`
