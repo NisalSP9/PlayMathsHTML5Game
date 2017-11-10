@@ -9,6 +9,7 @@ func UserRoutes() *mux.Router  {
 	var router = mux.NewRouter()
 	router = mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/user/create", api.CreateUser)
+	router.HandleFunc("/user/get/all", api.GetAllUsers)
 
 	return router
 

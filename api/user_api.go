@@ -8,21 +8,37 @@ import (
 )
 
 func CreateUser(w http.ResponseWriter, r *http.Request){
-
-	println("dddddddddddddddddddddddddd")
-
 	decoder := json.NewDecoder(r.Body)
-
 	var user models.USER
-
 	err := decoder.Decode(&user)
-
 	if err != nil{
+		println(err.Error())
+	}
+	controller.CreateUser(user)
+}
+
+func GetAllUsers(w http.ResponseWriter, r *http.Request)  {
+
+	users,err := controller.GetAllUsers()
+
+	if err != nil {
 
 		println(err.Error())
 
 	}
 
-	controller.CreateUser(user)
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+
+	w.WriteHeader(http.StatusOK)
+
+	err = json.NewEncoder(w).Encode(users);
+
+	if err != nil {
+		println(err.Error())
+	}
+
+
+
+
 
 }
