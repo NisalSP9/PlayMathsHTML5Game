@@ -18,27 +18,14 @@ func CreateUser(w http.ResponseWriter, r *http.Request){
 }
 
 func GetAllUsers(w http.ResponseWriter, r *http.Request)  {
-
 	users,err := controller.GetAllUsers()
-
 	if err != nil {
-
 		println(err.Error())
-
 	}
-
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-
 	w.WriteHeader(http.StatusOK)
-
 	err = json.NewEncoder(w).Encode(users);
-
 	if err != nil {
 		println(err.Error())
 	}
-
-
-
-
-
 }
