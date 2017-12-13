@@ -36,7 +36,11 @@ var user = (function () {
     $('#save').click(function () {
         if($('.validatedForm').valid()){
 
-                alert("Ajax call");
+            saveUser(
+                $('#username').val(),
+                $('#user_password').val(),
+                $('#level').val()
+            );
 
         }else{
 
@@ -44,6 +48,27 @@ var user = (function () {
 
         }
     });
+
+
+    var saveUser = function (username,password,level) {
+
+        return $.ajax({
+            url: "/api/user/create",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                'username': username,
+                'password': password,
+                'level': level
+
+            })
+        });
+
+
+
+
+
+    };
 
 
 
